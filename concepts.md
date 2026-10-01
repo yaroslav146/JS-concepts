@@ -11,7 +11,8 @@
 
 ## Proměnné
 > [!IMPORTANT]
-> V JavaScriptu je typ proměnné určen dynamicky, takže se určí podle hodnoty, kterou do proměnné ukládáme.
+> V JavaScriptu je typ proměnné určen dynamicky, takže se určí podle hodnoty, kterou do proměnné ukládáme. 
+
 > Stejnou proměnnou lze použít pro uložení jak řetězce, tak i celého čísla.
 
 1) Lokální proměnná
