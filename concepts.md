@@ -136,5 +136,5 @@ document.getElementById("varID");
 | document.querySelector(selector) | výběr prvního prvku CSS selektorem |
 | document.querySelectorAll(selector) | výběr všech prvků CSS selektorem |
 
-
+<!-- lorem -->
 
