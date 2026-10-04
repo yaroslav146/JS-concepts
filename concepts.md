@@ -74,5 +74,6 @@ let nahodneCislo = Math.floor(Math.random() * (max + 1));
 let nahodneCislo = Math.floor(Math.random() * (max + 1 - min)) + min;
 ```
 
+
 > [!NOTE]
 > Samotný `Math.random()` vrací náhodné číslo od 0 do 1.
