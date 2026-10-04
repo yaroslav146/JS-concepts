@@ -77,9 +77,4 @@ let nahodneCislo = Math.floor(Math.random() * (max + 1 - min)) + min;
 
 > [!NOTE]
 > Samotný `Math.random()` vrací náhodné číslo od 0 do 1.
-<<<<<<< HEAD
 
-<!-- collaborator change  --> 
-=======
-hello Vasiya!
->>>>>>> ba29cec (add text)
