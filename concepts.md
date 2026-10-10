@@ -79,7 +79,7 @@ const name = value;
 
 ### 3,1 Převedení textu na číslo
 1) Příkaz `parseTypProměnné`
-- zaokrouhlení na celé číslo (int): ignoruje hodnoty za desetinnou čárkou
+- zaokrouhlení na celé číslo (int): <font color="red">ignoruje hodnoty za desetinnou čárkou</font> 
 ```javascript
 parseInt("cislo_textem"); // místo int se dají použít i jiné typy proměnných
 ```
@@ -104,6 +104,14 @@ Math.ceil(desetinne_cislo);
 ```javascript
 Math.round(desetinne_cislo * (x ** 10)) / (x ** 10)
 ```
+- zaokrouhlení čísla na `x` desetinných míst pomoci `toFixed`
+    - <ins>vrácí textovou hodnotu </ins>`string`! 
+```javascript
+(3.2791).toFixed(2); // výsledek: "3.28"
+```
+```javascript
+parseFloat((3.2791).toFixed(2)); // s převodem na Float 
+```
 ---
 
 ### 3,3 Náhodná čísla
@@ -118,23 +126,116 @@ let nahodneCislo = Math.floor(Math.random() * (max + 1 - min)) + min;
 ```
 
 > [!NOTE]
-> Samotný `Math.random()` vrací náhodné číslo od 0 do 1.
+> Samotný `Math.random()` vrací náhodné desetiné číslo v intervalu `[0 ; 1)`.
 
 
 ---
 ## 4 Vyhledávání prvků v dokumentu HTML
+
+Obvykle si prvek uložíme do proměnné:
+
 ```javascript
-document.getElementById("varID");
+let promena = document.getElementById("ID");
 ```
-- pokud neni prvek nalezen vratí Null 
+ > [!IMPORTANT]
+ > Vždy pokud prvek neexistuje vráci `null`
 
+### 4.1 Podle `id`
 
-| Název produktu | Cena | 
-| :--- | ---: | 
-| document.getElementsByClassName(className) |  výběr podle názvu třídy |
-| document.getElementsByTagName(tagName) | výběr všech prvků podle značky |
-| document.querySelector(selector) | výběr prvního prvku CSS selektorem |
-| document.querySelectorAll(selector) | výběr všech prvků CSS selektorem |
+```javascript
+document.getElementById("ID");
+```
 
-<!-- lorem -->
+vybere jeden konkrétní prvek,
+
+---
+### 4.2 `getElementsByClassName()`
+
+Vybere prvky podle názvu třídy.
+
+```javascript
+document.getElementsByClassName("green");
+```
+
+Výsledkem může být více prvků.
+
+---
+
+### 4.3 `getElementsByTagName()`
+
+Vybere všechny prvky daného typu značky.
+
+```javascript
+document.getElementsByTagName("p");
+```
+
+Vybere všechny `<p>`.
+
+---
+
+### 4.4 `querySelector()`
+
+Vybere **první** prvek odpovídající CSS selektoru.
+
+```javascript
+document.querySelector("#id");
+document.querySelector(".class");
+document.querySelector("tag");
+```
+
+Používá CSS zápis:
+
+- `#id`
+- `.class`
+- `tag`
+
+---
+
+### 4.5 `querySelectorAll()`
+
+Vybere **všechny** odpovídající prvky.
+
+```javascript
+document.querySelectorAll(".class");
+```
+
+Například všechny odstavce s třídou `green`:
+
+```javascript
+document.querySelectorAll("p.green");
+```
+
+---
+
+## 5 Čtení a změná s `textContent` 
+      
+Slouží ke čtení nebo změně textu prvku.
+
+```javascript
+let odpoved = document.getElementById("odpovedOut");
+odpoved.textContent = "Ahoj!";
+```
+
+HTML:
+
+```html
+<p id="odpovedOut"></p>
+```
+
+Po provedení JS bude uvnitř:
+
+```html
+<p id="odpovedOut">Ahoj!</p>
+```
+
+---
+
+### Čtení pomocí `textContent`
+
+```javascript
+let text = odpoved.textContent;
+```
+
+---
+
 
