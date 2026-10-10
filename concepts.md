@@ -35,7 +35,60 @@ Proměnná může během programu obsahovat jiný datový typ.
 ```
 ---
 
-## 3 Proměnné
+## 3 Výstup v JavaScriptu
+
+### 3.1 `console.log()`
+
+Vypíše text do vývojářské konzole.
+
+```javascript
+console.log("text");
+```
+
+Používá se hlavně pro kontrolu programu a hledání chyb.
+
+### 3.2 `console.error()`
+
+Vypíše chybu do konzole.
+
+```javascript
+console.error("Allert");
+```
+
+### 3.3 `alert()`
+
+Zobrazí jednoduché upozornění.
+
+![alert](/images/alert.png)
+```javascript
+alert("Ahoj!");
+```
+
+---
+
+### 3.4 `prompt()`
+
+Zeptá se uživatele na hodnotu.
+
+![prompt](/images/prompt.png)
+```javascript
+let jmeno = prompt("Jak se jmenuješ?");
+```
+
+> [!WARNING]
+> Hodnota získaná přes `prompt()` je text (`string`), takže pro výpočty ji obvykle musíme převést na číslo.
+
+Například:
+
+```javascript
+let cislo = parseFloat(prompt("Zadej číslo:"));
+```
+
+---
+
+
+
+## 4 Proměnné
 > [!IMPORTANT]
 > V JavaScriptu je typ proměnné určen dynamicky, takže se určí podle hodnoty, kterou do proměnné ukládáme. <br>
 > Stejnou proměnnou lze použít pro uložení jak řetězce, tak i celého čísla.
@@ -65,7 +118,7 @@ var name = value;
 
 ---
 
-### Konstanta
+### 4.1 Konstanta
 
 ```javascript
 const name = value;
@@ -77,7 +130,7 @@ const name = value;
 
 ---
 
-### 3,1 Převedení textu na číslo
+### 4.2 Převedení textu na číslo
 1) Příkaz `parseTypProměnné`
 - zaokrouhlení na celé číslo (int): <font color="red">ignoruje hodnoty za desetinnou čárkou</font> 
 ```javascript
@@ -91,20 +144,20 @@ parseInt("cislo_textem"); // místo int se dají použít i jiné typy proměnn�
 ```
 ---
 
-### 3,2 Zaokrouhlování
-- zaokrouhlí dolů na celé číslo
+### 4.3 Zaokrouhlování
+1) zaokrouhlení dolů na celé číslo `.floor`
 ```javascript
 Math.floor(desetinne_cislo);
 ```
-- zaokrouhlí nahoru na celé číslo
+2) zaokrouhlení nahoru na celé číslo `.ceil`
 ```javascript
 Math.ceil(desetinne_cislo);
 ```
-- zaokrouhlení čísla na `x` desetinných míst
+3) zaokrouhlení čísla na `x` desetinných míst
 ```javascript
 Math.round(desetinne_cislo * (x ** 10)) / (x ** 10)
 ```
-- zaokrouhlení čísla na `x` desetinných míst pomoci `toFixed`
+4) zaokrouhlení čísla na `x` desetinných míst pomoci `toFixed`
     - <ins>vrácí textovou hodnotu </ins>`string`! 
 ```javascript
 (3.2791).toFixed(2); // výsledek: "3.28"
@@ -114,7 +167,7 @@ parseFloat((3.2791).toFixed(2)); // s převodem na Float
 ```
 ---
 
-### 3,3 Náhodná čísla
+### 4.4 Náhodná čísla
 - generuje v intervalu [0 ; max]
 ```javascript
 let nahodneCislo = Math.floor(Math.random() * (max + 1));
@@ -130,7 +183,7 @@ let nahodneCislo = Math.floor(Math.random() * (max + 1 - min)) + min;
 
 
 ---
-## 4 Vyhledávání prvků v dokumentu HTML
+## 5 Vyhledávání prvků v dokumentu HTML
 
 Obvykle si prvek uložíme do proměnné:
 
@@ -140,7 +193,7 @@ let promena = document.getElementById("ID");
  > [!IMPORTANT]
  > Vždy pokud prvek neexistuje vráci `null`
 
-### 4.1 Podle `id`
+### 5.1 `id`
 
 ```javascript
 document.getElementById("ID");
@@ -149,7 +202,7 @@ document.getElementById("ID");
 vybere jeden konkrétní prvek,
 
 ---
-### 4.2 `getElementsByClassName()`
+### 5.2 `getElementsByClassName()`
 
 Vybere prvky podle názvu třídy.
 
@@ -161,7 +214,7 @@ Výsledkem může být více prvků.
 
 ---
 
-### 4.3 `getElementsByTagName()`
+### 5.3 `getElementsByTagName()`
 
 Vybere všechny prvky daného typu značky.
 
@@ -173,7 +226,7 @@ Vybere všechny `<p>`.
 
 ---
 
-### 4.4 `querySelector()`
+### 5.4 `querySelector()`
 
 Vybere **první** prvek odpovídající CSS selektoru.
 
@@ -191,7 +244,7 @@ Používá CSS zápis:
 
 ---
 
-### 4.5 `querySelectorAll()`
+### 5.5 `querySelectorAll()`
 
 Vybere **všechny** odpovídající prvky.
 
@@ -207,35 +260,102 @@ document.querySelectorAll("p.green");
 
 ---
 
-## 5 Čtení a změná s `textContent` 
+## 6 Čtení a změná s `textContent` 
       
 Slouží ke čtení nebo změně textu prvku.
 
+### 6.1 vypís pomocí `textContent`
 ```javascript
 let odpoved = document.getElementById("odpovedOut");
 odpoved.textContent = "Ahoj!";
 ```
 
-HTML:
-
 ```html
-<p id="odpovedOut"></p>
-```
-
-Po provedení JS bude uvnitř:
-
-```html
-<p id="odpovedOut">Ahoj!</p>
+<p id="odpovedOut"></p>    >>>   <p id="odpovedOut">Ahoj!</p>
 ```
 
 ---
 
-### Čtení pomocí `textContent`
+### 6.2 Čtení pomocí `textContent`
 
 ```javascript
-let text = odpoved.textContent;
+let text = odpoved.textInput;
 ```
 
 ---
+
+## 7 Čtení a změná s `innerHTML`
+
+<ins>Čte prvek jako **html** kod.</ins>
+
+```javascript
+prvek.innerHTML = "<b>Ahoj!</b>";
+```
+
+Text `Ahoj!` se zobrazí tučně.
+
+Můžeme vložit i více HTML prvků:
+
+```javascript
+prvek.innerHTML = "<ul><li>Jedna</li><li>Dva</li></ul>";
+```
+--- 
+Hlávní rozdíl mezi `textContent` je právě čteni html kodu
+
+takže 
+```javascript
+prvek.textContent = "<b>Ahoj</b>";
+```
+
+Se zobrazí doslova jako `<b>Ahoj</b>`
+
+---
+
+## 8 Vlastnost `.value`
+
+Používá se u formulářových prvků, např.:
+
+- `<input>`
+- `<select>`
+- `<textarea>`
+
+Vlastnost .value – <ins>slouží k získání nebo změně hodnoty formulářového prvku</ins> bez ní získáme samotný HTML prvek místo hodnoty zadané uživatelem
+
+
+```html
+<input type="number" id="cisloIn"> <!-- html --> 
+```
+⬇⬇⬇
+```javascript
+let cislo = document.getElementById("cisloIn").value;
+```
+
+> Hodnota `.value` je běžně **text (`string`)**, i když má `<input>` `type="number"`.
+
+Proto se často používá:
+
+```javascript
+let cislo = parseInt(document.getElementById("cisloIn").value); 
+```
+
+---
+
+## 9 Změna CSS přes JS 
+Vzorec: 
+```javascript
+prvek.style.CSScommand = "CSSvalue";
+```
+
+Příklad z ověrování hesla[^1]:
+
+[^1]: https://github.com/yaroslav146/formular-JS/blob/main/index.html
+
+```javascript
+formular.style.display = "none"; // skryje formular
+```
+
+
+
+
 
 
