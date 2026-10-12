@@ -374,7 +374,7 @@ Vlastnost `.value` <ins>slouží k získání nebo změně hodnoty formulářov�
 ```javascript
 let cislo = document.getElementById("cisloIn").value;
 ```
-
+> [!IMPORTANT]
 > Hodnota `.value` je běžně **text (`string`)**, i když má `<input>` `type="number"`.
 
 Proto se často používá:
