@@ -97,7 +97,7 @@ Používá se hlavně pro kontrolu programu a hledání chyb.
 Vypíše chybu do konzole.
 
 ```javascript
-console.error("Allert");
+console.error("chyba");
 ```
 
 ### 3.3 `alert()`
