@@ -324,7 +324,7 @@ odpoved.textContent = "Ahoj!";
 ### 6.2 Čtení pomocí `textContent`
 
 ```javascript
-let text = odpoved.textInput;
+let text = odpoved.textContent;
 ```
 
 ---
